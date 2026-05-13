@@ -182,7 +182,7 @@ export function LuxuryNav() {
               <motion.div
                 key={hoveredEvent || "default"}
                 initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 0.5, scale: 1 }}
+                animate={{ opacity: 0.6, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="absolute inset-0 z-0 pointer-events-none"
@@ -197,7 +197,7 @@ export function LuxuryNav() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/70 to-stone-950/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-stone-950/20" />
               </motion.div>
             </AnimatePresence>
 
@@ -217,30 +217,32 @@ export function LuxuryNav() {
             </div>
 
             {/* Event Grid */}
-            <div className="relative z-10 mt-8 grid flex-1 gap-x-12 overflow-hidden lg:mt-16 lg:grid-cols-2">
-              <div className="flex flex-col justify-center gap-1 overflow-y-auto pr-4 scrollbar-hide sm:gap-2">
-                {eventOptions.map((event, idx) => (
-                  <motion.div
-                    key={event.label}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + idx * 0.05 }}
-                  >
-                    <Link
-                      href={`/group-booking?type=${event.label.toLowerCase().replace(/ /g, "-")}`}
-                      onClick={() => setEventsOpen(false)}
-                      onMouseEnter={() => setHoveredEvent(event.label)}
-                      onMouseLeave={() => setHoveredEvent(null)}
-                      className="group flex items-center gap-4 py-2 transition-all duration-500 sm:gap-6 sm:py-3"
+            <div className="relative z-10 mt-8 grid flex-1 overflow-hidden lg:mt-16 lg:grid-cols-2">
+              <div className="flex flex-col justify-start gap-1 overflow-y-auto pr-4 custom-scrollbar sm:gap-2">
+                <div className="py-10 sm:py-0">
+                  {eventOptions.map((event, idx) => (
+                    <motion.div
+                      key={event.label}
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + idx * 0.05 }}
                     >
-                      <span className="text-[0.65rem] font-mono text-white/30 group-hover:text-cyan-400 sm:text-xs">0{idx + 1}</span>
-                      <span className="font-display text-3xl font-medium text-white/50 transition-all duration-500 group-hover:text-white group-hover:translate-x-4 sm:text-5xl lg:text-6xl">
-                        {event.label}
-                      </span>
-                      <ArrowRight className="h-5 w-5 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-6 text-cyan-400 sm:h-6 sm:w-6" />
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={`/group-booking?type=${event.label.toLowerCase().replace(/ /g, "-")}`}
+                        onClick={() => setEventsOpen(false)}
+                        onMouseEnter={() => setHoveredEvent(event.label)}
+                        onMouseLeave={() => setHoveredEvent(null)}
+                        className="group flex items-center gap-4 py-2 transition-all duration-500 sm:gap-6 sm:py-3"
+                      >
+                        <span className="text-[0.65rem] font-mono text-white/40 group-hover:text-cyan-400 sm:text-xs">0{idx + 1}</span>
+                        <span className="font-display text-3xl font-medium text-white/70 transition-all duration-500 group-hover:text-white group-hover:translate-x-4 sm:text-5xl lg:text-6xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+                          {event.label}
+                        </span>
+                        <ArrowRight className="h-5 w-5 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-6 text-cyan-400 sm:h-6 sm:w-6" />
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
 
               {/* Description Panel (Desktop only) */}
@@ -254,7 +256,7 @@ export function LuxuryNav() {
                       exit={{ opacity: 0, y: -20 }}
                       className="max-w-md"
                     >
-                      <div className="mb-6 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+                      <div className="mb-6 overflow-hidden rounded-2xl border border-white/20 shadow-2xl">
                         <div className="relative aspect-[16/10] w-full">
                           <Image 
                             src={eventOptions.find(e => e.label === hoveredEvent)?.image || ""}
@@ -264,7 +266,7 @@ export function LuxuryNav() {
                           />
                         </div>
                       </div>
-                      <p className="text-2xl font-medium leading-relaxed text-white/80">
+                      <p className="text-2xl font-medium leading-relaxed text-white drop-shadow-sm">
                         {eventOptions.find(e => e.label === hoveredEvent)?.description}
                       </p>
                       <div className="mt-8 h-px w-20 bg-cyan-400" />
@@ -276,7 +278,7 @@ export function LuxuryNav() {
                       animate={{ opacity: 1 }}
                       className="max-w-md"
                     >
-                      <p className="text-2xl font-medium leading-relaxed text-white/30 italic">
+                      <p className="text-2xl font-medium leading-relaxed text-white/40 italic">
                         Select an event type to explore our curated hosting experiences on the river.
                       </p>
                     </motion.div>
@@ -289,11 +291,11 @@ export function LuxuryNav() {
             <div className="relative z-10 mt-auto flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between sm:pt-10">
               <div className="flex gap-8 sm:gap-10">
                 <div>
-                  <span className="block text-[0.55rem] font-bold uppercase tracking-widest text-white/40 sm:text-[0.6rem]">Inquiries</span>
+                  <span className="block text-[0.55rem] font-bold uppercase tracking-widest text-white/50 sm:text-[0.6rem]">Inquiries</span>
                   <p className="mt-1 text-xs font-semibold text-white sm:text-sm">+91 98765 43210</p>
                 </div>
                 <div>
-                  <span className="block text-[0.55rem] font-bold uppercase tracking-widest text-white/40 sm:text-[0.6rem]">Email</span>
+                  <span className="block text-[0.55rem] font-bold uppercase tracking-widest text-white/50 sm:text-[0.6rem]">Email</span>
                   <p className="mt-1 text-xs font-semibold text-white sm:text-sm">events@gangacruise.com</p>
                 </div>
               </div>
