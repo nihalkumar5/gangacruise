@@ -100,7 +100,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
           <div className="absolute inset-0 flex items-end pb-20">
             <div className="luxury-shell">
               <div className="max-w-3xl">
-                <p className="mb-6 inline-flex items-center gap-2 rounded-full bg-cyan-400/20 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-cyan-300 backdrop-blur-md border border-cyan-400/30">
+                <p className="mb-6 inline-flex items-center gap-2 rounded-full bg-saffron-400/20 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-saffron-300 backdrop-blur-md border border-saffron-400/30">
                   <Sparkles size={14} />
                   Private Hosting
                 </p>
@@ -125,8 +125,8 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
               <div className="grid gap-6 sm:grid-cols-2">
                 {event.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-4 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:border-cyan-200 hover:shadow-md">
-                    <div className="grid size-10 place-items-center rounded-full bg-cyan-50 text-cyan-600">
+                  <div key={idx} className="flex items-center gap-4 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:border-saffron-200 hover:shadow-md">
+                    <div className="grid size-10 place-items-center rounded-full bg-saffron-50 text-saffron-600">
                       <Sparkles size={18} />
                     </div>
                     <span className="font-medium text-stone-800">{feature}</span>
@@ -144,20 +144,20 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
                 <div className="mt-10 space-y-6">
                   <div className="flex items-center gap-4 text-sm text-stone-300">
-                    <Calendar className="text-cyan-400" size={20} />
+                    <Calendar className="text-saffron-400" size={20} />
                     Live Availability
                   </div>
                   <div className="flex items-center gap-4 text-sm text-stone-300">
-                    <Users className="text-cyan-400" size={20} />
+                    <Users className="text-saffron-400" size={20} />
                     Full Deck Exclusivity
                   </div>
                   <div className="flex items-center gap-4 text-sm text-stone-300">
-                    <MapPin className="text-cyan-400" size={20} />
+                    <MapPin className="text-saffron-400" size={20} />
                     Prime Varanasi Ghats
                   </div>
                 </div>
 
-                <Button asChild className="mt-12 h-16 w-full rounded-full bg-cyan-400 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-stone-950 hover:bg-cyan-300 border-none shadow-[0_12px_24px_rgba(34,211,238,0.3)]">
+                <Button asChild className="mt-12 h-16 w-full rounded-full bg-saffron-400 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-stone-950 hover:bg-saffron-300 border-none shadow-[0_12px_24px_rgba(244,184,96,0.3)]">
                   <Link href="/booking">
                     Start Reservation
                     <ArrowRight size={18} />

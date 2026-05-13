@@ -16,14 +16,17 @@ const config: Config = {
         muted: "hsl(var(--muted))",
         "muted-foreground": "hsl(var(--muted-foreground))",
         border: "hsl(var(--border))",
-        gold: {
-          50: "#fff8ea",
-          100: "#e7b86a",
-          300: "#c98b37",
-          500: "#9d6823",
-          700: "#624017",
+        saffron: {
+          50: "#fff9f0",
+          100: "#ffedd1",
+          200: "#ffd9a3",
+          300: "#ffc166",
+          400: "#F4B860", // Royal Light Saffron
+          500: "#d99c43",
+          600: "#b97a2e",
+          700: "#965e25",
         },
-        lotus: "#0891b2", // Cyan-600 for consistency with hero
+        lotus: "#F4B860", // Updated to Saffron
         ember: "#c76236",
         river: "#27221f",
         obsidian: "#faf7f2",

@@ -314,7 +314,7 @@ export function BookingEngine({
             <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
               <div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="inline-flex rounded-full border border-cyan-300/25 bg-cyan-300/10 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-cyan-100">
+                  <span className="inline-flex rounded-full border border-saffron-300/25 bg-saffron-300/10 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-saffron-100">
                     Realtime deck map
                   </span>
                   <span className="inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-amber-100">
@@ -343,7 +343,7 @@ export function BookingEngine({
                       className="rounded-[20px] border border-white/8 bg-white/[0.04] px-4 py-3"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="grid size-9 place-items-center rounded-2xl bg-white/6 text-cyan-200">
+                        <span className="grid size-9 place-items-center rounded-2xl bg-white/6 text-saffron-200">
                           <Icon size={16} strokeWidth={1.5} />
                         </span>
                         <div>
@@ -675,7 +675,7 @@ export function BookingEngine({
                       Transaction-safe flow
                     </h3>
                   </div>
-                  <Info className="text-cyan-200" size={18} strokeWidth={1.6} />
+                  <Info className="text-saffron-200" size={18} strokeWidth={1.6} />
                 </div>
                 <div className="mt-4 grid gap-3 text-sm text-white/60">
                   <div className="flex items-center justify-between rounded-2xl border border-white/6 bg-white/[0.03] px-4 py-3">
@@ -700,7 +700,7 @@ export function BookingEngine({
       <aside className="xl:sticky xl:top-24 xl:self-start">
         <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(14,16,23,0.98),rgba(7,8,12,0.98))] shadow-[0_40px_120px_rgba(0,0,0,0.45)]">
           <div className="border-b border-white/8 px-6 py-6">
-            <div className="flex items-center gap-3 text-cyan-200">
+            <div className="flex items-center gap-3 text-saffron-200">
               <ShieldCheck strokeWidth={1.5} />
               <span className="text-[0.72rem] font-semibold uppercase tracking-[0.22em]">
                 Secure booking summary
@@ -771,20 +771,20 @@ export function BookingEngine({
                 value={guest.name}
                 onChange={(event) => updateGuest("name", event.target.value)}
                 placeholder="Guest name"
-                className="h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 text-sm text-white outline-none transition placeholder:text-white/32 focus:border-cyan-300/35"
+                className="h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 text-sm text-white outline-none transition placeholder:text-white/32 focus:border-saffron-300/35"
               />
               <input
                 value={guest.email}
                 onChange={(event) => updateGuest("email", event.target.value)}
                 placeholder="Email address"
                 type="email"
-                className="h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 text-sm text-white outline-none transition placeholder:text-white/32 focus:border-cyan-300/35"
+                className="h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 text-sm text-white outline-none transition placeholder:text-white/32 focus:border-saffron-300/35"
               />
               <input
                 value={guest.phone}
                 onChange={(event) => updateGuest("phone", event.target.value)}
                 placeholder="WhatsApp number"
-                className="h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 text-sm text-white outline-none transition placeholder:text-white/32 focus:border-cyan-300/35"
+                className="h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 text-sm text-white outline-none transition placeholder:text-white/32 focus:border-saffron-300/35"
               />
             </div>
 

@@ -161,7 +161,7 @@ export function CinematicHero() {
             className="max-w-5xl text-balance font-display text-[clamp(2.9rem,11vw,7.5rem)] font-bold leading-[0.95] tracking-tight text-white"
           >
             Sail the <br />
-            <span className="relative inline-block text-cyan-300">
+            <span className="relative inline-block text-saffron-300">
               {displayText}
               <motion.span
                 animate={{ opacity: [1, 0] }}
@@ -184,7 +184,7 @@ export function CinematicHero() {
           <div className="hero-reveal-late mt-10 flex w-full justify-center px-4 sm:absolute sm:inset-x-0 sm:bottom-28 sm:mt-0 sm:px-6">
             <div className="flex w-full max-w-sm flex-col items-stretch gap-2 rounded-2xl border border-white/10 bg-stone-950/60 p-2 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] backdrop-blur-2xl sm:max-w-fit sm:flex-row sm:items-center">
               <label className="group flex items-center gap-4 px-5 py-3 text-left transition hover:bg-white/5 sm:px-7 sm:py-3.5">
-                <MapPin className="size-5 text-cyan-300/60 transition-colors group-hover:text-cyan-300" />
+                <MapPin className="size-5 text-saffron-300/60 transition-colors group-hover:text-saffron-300" />
                 <div className="min-w-0">
                   <span className="block text-[0.6rem] font-bold uppercase tracking-widest text-white/40 sm:text-[0.65rem]">
                     Location
@@ -206,7 +206,7 @@ export function CinematicHero() {
               <Popover open={isDatePickerOpen} onOpenChange={handleDatePickerOpenChange}>
                 <PopoverTrigger asChild>
                   <button className="group flex flex-1 items-center gap-4 px-5 py-3 text-left transition hover:bg-white/5 sm:px-7 sm:py-3.5">
-                    <CalendarDays className="size-5 text-cyan-300/60 transition-colors group-hover:text-cyan-300" />
+                    <CalendarDays className="size-5 text-saffron-300/60 transition-colors group-hover:text-saffron-300" />
                     <div className="min-w-0">
                       <span className="block text-[0.6rem] font-bold uppercase tracking-widest text-white/40 sm:text-[0.65rem]">
                         Journey Date
@@ -242,7 +242,7 @@ export function CinematicHero() {
                     <button
                       type="button"
                       onClick={handleDateConfirm}
-                      className="grid h-10 min-w-[5.5rem] place-items-center rounded-xl bg-cyan-300 px-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200"
+                      className="grid h-10 min-w-[5.5rem] place-items-center rounded-xl bg-saffron-300 px-4 text-sm font-semibold text-slate-950 transition hover:bg-saffron-200"
                     >
                       Done
                     </button>
@@ -253,7 +253,7 @@ export function CinematicHero() {
               <div className="hidden h-10 w-px bg-white/10 sm:block" />
 
               <div className="group flex items-center gap-4 px-5 py-3 text-left transition hover:bg-white/5 sm:px-7 sm:py-3.5">
-                <UsersRound className="size-5 text-cyan-300/60 transition-colors group-hover:text-cyan-300" />
+                <UsersRound className="size-5 text-saffron-300/60 transition-colors group-hover:text-saffron-300" />
                 <div className="min-w-0">
                   <span className="block text-[0.6rem] font-bold uppercase tracking-widest text-white/40 sm:text-[0.65rem]">
                     Travelers
@@ -279,7 +279,7 @@ export function CinematicHero() {
               </div>
 
               <Button
-                className="group/button relative isolate h-14 w-full overflow-hidden rounded-[1.35rem] border border-white/12 bg-[linear-gradient(135deg,#67e8f9_0%,#34d7f3_42%,#0ea5cf_100%)] p-0 text-slate-950 shadow-[0_20px_45px_-18px_rgba(52,215,243,0.95),0_12px_28px_-16px_rgba(0,0,0,0.7)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_26px_60px_-18px_rgba(103,232,249,0.9),0_18px_36px_-18px_rgba(0,0,0,0.82)] active:translate-y-0 active:scale-[0.98] sm:size-16 sm:w-16"
+                className="group/button relative isolate h-14 w-full overflow-hidden rounded-[1.35rem] border border-white/12 bg-[linear-gradient(135deg,#67e8f9_0%,#34d7f3_42%,#0ea5cf_100%)] p-0 text-slate-950 shadow-[0_20px_45px_-18px_rgba(52,215,243,0.95),0_12px_28px_-16px_rgba(0,0,0,0.7)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_26px_60px_-18px_rgba(244,184,96,0.9),0_18px_36px_-18px_rgba(0,0,0,0.82)] active:translate-y-0 active:scale-[0.98] sm:size-16 sm:w-16"
                 type="button"
                 aria-label="Search"
                 onClick={submitSearch}
@@ -287,7 +287,7 @@ export function CinematicHero() {
                 <div className="absolute inset-[1px] rounded-[calc(1.35rem-1px)] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.02)_42%,rgba(0,0,0,0.1)_100%)]" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_24%,rgba(255,255,255,0.26),transparent_34%),linear-gradient(140deg,transparent_22%,rgba(255,255,255,0.15)_48%,transparent_74%)] opacity-80 transition duration-500 group-hover/button:opacity-100" />
                 <div className="absolute inset-y-0 left-[-60%] w-[70%] rotate-12 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 blur-md transition duration-700 group-hover/button:left-[115%] group-hover/button:opacity-100" />
-                <div className="absolute inset-x-3 bottom-1.5 h-6 rounded-full bg-cyan-950/25 blur-xl transition duration-500 group-hover/button:bg-cyan-950/35" />
+                <div className="absolute inset-x-3 bottom-1.5 h-6 rounded-full bg-saffron-950/25 blur-xl transition duration-500 group-hover/button:bg-saffron-950/35" />
                 <Search
                   size={24}
                   strokeWidth={2.6}
@@ -307,7 +307,7 @@ export function CinematicHero() {
             className="absolute bottom-6 flex flex-col items-center gap-3 sm:bottom-6"
           >
             <span className="text-[0.55rem] font-bold uppercase tracking-[0.6em] text-white">Scroll</span>
-            <div className="h-8 w-px bg-gradient-to-b from-cyan-300 to-transparent" />
+            <div className="h-8 w-px bg-gradient-to-b from-saffron-300 to-transparent" />
           </motion.div>
         </div>
       </div>

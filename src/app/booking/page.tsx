@@ -41,14 +41,14 @@ export default async function BookingPage({ searchParams }: BookingPageProps) {
       <main className="relative pt-32 sm:pt-40">
         {/* Abstract Background Texture */}
         <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-          <div className="absolute left-[10%] top-[5%] h-[500px] w-[500px] rounded-full bg-cyan-100/30 blur-[120px]" />
+          <div className="absolute left-[10%] top-[5%] h-[500px] w-[500px] rounded-full bg-saffron-100/30 blur-[120px]" />
           <div className="absolute right-[5%] top-[15%] h-[400px] w-[400px] rounded-full bg-orange-50/40 blur-[100px]" />
         </div>
 
         {/* Header Section */}
         <div className="luxury-shell mb-16">
           <div className="max-w-4xl">
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full bg-cyan-600/10 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-cyan-600">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full bg-saffron-600/10 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-saffron-600">
               <Sparkles size={14} />
               Reservations
             </p>
@@ -162,7 +162,7 @@ export default async function BookingPage({ searchParams }: BookingPageProps) {
                           <div className="flex flex-wrap gap-4">
                             {cruise?.highlights.map((highlight, hIdx) => (
                               <div key={hIdx} className="flex items-center gap-2 rounded-full border border-stone-100 bg-stone-50/50 px-4 py-2 text-xs font-medium text-stone-600">
-                                <Sparkles size={12} className="text-cyan-500" />
+                                <Sparkles size={12} className="text-saffron-500" />
                                 {highlight}
                               </div>
                             ))}
@@ -191,7 +191,7 @@ export default async function BookingPage({ searchParams }: BookingPageProps) {
                               </div>
                             </div>
 
-                            <Button asChild className="h-16 rounded-full bg-cyan-400 px-10 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-stone-950 hover:bg-cyan-300 border-none shadow-[0_12px_24px_rgba(34,211,238,0.3)] w-full sm:w-auto">
+                            <Button asChild className="h-16 rounded-full bg-saffron-400 px-10 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-stone-950 hover:bg-saffron-300 border-none shadow-[0_12px_24px_rgba(244,184,96,0.3)] w-full sm:w-auto">
                               <Link
                                 href={`/booking/${sailing.id}?${bookingQuery}`}
                                 scroll={false}

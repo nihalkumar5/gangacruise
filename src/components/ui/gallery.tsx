@@ -185,7 +185,7 @@ export function PhotoGallery({ animationDelay = 0.5 }: { animationDelay?: number
       </div>
 
       <div className="flex w-full justify-center">
-        <Button asChild className="h-14 px-8 bg-cyan-400 hover:bg-cyan-300 text-stone-950 border-none shadow-[0_8px_24px_rgba(34,211,238,0.3)]">
+        <Button asChild className="h-14 px-8 bg-cyan-400 hover:bg-cyan-300 text-stone-950 border-none shadow-[0_8px_24px_rgba(244,184,96,0.3)]">
           <Link href="/gallery">View All Stories</Link>
         </Button>
       </div>

@@ -154,7 +154,7 @@ export function LuxuryNav() {
           <Link
             href="/booking"
             className={cn(
-              "group hidden items-center justify-center rounded-full bg-cyan-300 px-8 py-3 text-[0.72rem] font-bold uppercase tracking-[0.18em] text-stone-900 shadow-[0_8px_24px_rgba(103,232,249,0.3)] transition-all duration-500 hover:scale-[1.02] hover:bg-cyan-200 active:scale-95 md:inline-flex",
+              "group hidden items-center justify-center rounded-full bg-saffron-300 px-8 py-3 text-[0.72rem] font-bold uppercase tracking-[0.18em] text-stone-900 shadow-[0_8px_24px_rgba(244,184,96,0.3)] transition-all duration-500 hover:scale-[1.02] hover:bg-saffron-200 active:scale-95 md:inline-flex",
               scrolled ? "scale-90" : "scale-100"
             )}
           >
@@ -220,7 +220,7 @@ export function LuxuryNav() {
             <div className="relative z-10 flex flex-1 flex-col gap-10 overflow-hidden lg:flex-row lg:items-center lg:gap-0">
               {/* Left Column: Header */}
               <div className="flex flex-col justify-center lg:w-[40%] lg:pr-12">
-                <p className="text-[0.6rem] font-bold uppercase tracking-[0.4em] text-cyan-400">Exquisite Gatherings</p>
+                <p className="text-[0.6rem] font-bold uppercase tracking-[0.4em] text-saffron-400">Exquisite Gatherings</p>
                 <h2 className="mt-4 font-display text-5xl font-medium text-white sm:text-7xl lg:text-8xl">Private<br />Events</h2>
                 <p className="mt-6 max-w-sm text-base leading-relaxed text-white/50 italic lg:text-lg">
                   Curated hosting experiences on the sacred river. From intimate ceremonies to grand celebrations.
@@ -253,7 +253,7 @@ export function LuxuryNav() {
                         onMouseLeave={() => setHoveredEvent(null)}
                         className="group flex items-center gap-4 py-4 transition-all duration-500 sm:gap-8 sm:py-5"
                       >
-                        <span className="text-[0.6rem] font-mono text-white/40 group-hover:text-cyan-400">0{idx + 1}</span>
+                        <span className="text-[0.6rem] font-mono text-white/40 group-hover:text-saffron-400">0{idx + 1}</span>
                         <div className="flex flex-col">
                           <span className="font-display text-3xl font-medium text-white/70 transition-all duration-500 group-hover:text-white group-hover:translate-x-6 sm:text-5xl lg:text-6xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
                             {event.label}
@@ -262,7 +262,7 @@ export function LuxuryNav() {
                             {event.description}
                           </span>
                         </div>
-                        <ArrowRight className="ml-auto h-5 w-5 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-4 text-cyan-400 sm:h-7 sm:w-7" />
+                        <ArrowRight className="ml-auto h-5 w-5 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-4 text-saffron-400 sm:h-7 sm:w-7" />
                       </Link>
                     </motion.div>
                   ))}
@@ -289,7 +289,7 @@ export function LuxuryNav() {
                   <p className="mt-1 text-[0.65rem] font-semibold text-white sm:text-xs">events@gangacruise.com</p>
                 </div>
               </div>
-              <Link href="/group-booking" className="inline-flex h-11 items-center justify-center gap-3 rounded-full bg-cyan-300 px-8 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-stone-900 transition-all hover:bg-cyan-200 sm:h-12 sm:text-[0.65rem]">
+              <Link href="/group-booking" className="inline-flex h-11 items-center justify-center gap-3 rounded-full bg-saffron-300 px-8 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-stone-900 transition-all hover:bg-saffron-200 sm:h-12 sm:text-[0.65rem]">
                 Book Full Deck
               </Link>
             </div>

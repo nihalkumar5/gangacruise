@@ -56,7 +56,7 @@ export function OurStoryPage() {
       <FlowArt aria-label="Our story">
         <FlowSection
           aria-label="Our story introduction"
-          className="bg-[radial-gradient(circle_at_20%_18%,rgba(103,232,249,0.18),transparent_24rem),linear-gradient(180deg,#08131b_0%,#10202b_48%,#132d3c_100%)] text-white"
+          className="bg-[radial-gradient(circle_at_20%_18%,rgba(244,184,96,0.18),transparent_24rem),linear-gradient(180deg,#08131b_0%,#10202b_48%,#132d3c_100%)] text-white"
         >
           <div className="grid min-h-[74vh] gap-10 pt-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-14">
             <div className="max-w-3xl">

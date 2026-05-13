@@ -94,7 +94,7 @@ export function HomePage() {
         <section className="bg-white py-20 sm:py-28">
           <div className="luxury-shell grid gap-14 lg:grid-cols-[0.85fr_1fr_1fr_1fr] lg:items-start">
             <Reveal>
-              <p className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-cyan-600">
+              <p className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-saffron-600">
                 What we serve
               </p>
               <h2 className="mt-6 max-w-sm font-sans text-4xl font-bold uppercase leading-tight tracking-tight text-stone-900 sm:text-5xl">
@@ -137,7 +137,7 @@ export function HomePage() {
                         />
                       </motion.div>
                     </div>
-                    <h3 className="text-2xl font-bold tracking-tight text-stone-900 transition-colors duration-500 group-hover:text-cyan-600">
+                    <h3 className="text-2xl font-bold tracking-tight text-stone-900 transition-colors duration-500 group-hover:text-saffron-600">
                       {value.label}
                     </h3>
                     <p className="mt-4 max-w-[220px] text-sm font-medium leading-relaxed text-stone-500/80">
@@ -146,7 +146,7 @@ export function HomePage() {
                     <motion.div
                       initial={{ width: 0 }}
                       whileHover={{ width: 40 }}
-                      className="mt-6 h-1 rounded-full bg-cyan-600/20 transition-all duration-500"
+                      className="mt-6 h-1 rounded-full bg-saffron-600/20 transition-all duration-500"
                     />
                   </motion.article>
                 </Reveal>
@@ -158,7 +158,7 @@ export function HomePage() {
         <section id="cruises" className="bg-[#fbf8f4] py-24 sm:py-32">
           <div className="luxury-shell grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
             <Reveal>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-600">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-saffron-600">
                 Curated departures
               </p>
               <h2 className="mt-6 max-w-2xl font-display text-6xl font-medium leading-[0.94] text-river sm:text-7xl">
@@ -202,7 +202,7 @@ export function HomePage() {
                         </div>
                       </div>
                       
-                      <h3 className="font-display text-4xl font-medium leading-[1.1] text-white transition-colors duration-500 group-hover:text-cyan-200">
+                      <h3 className="font-display text-4xl font-medium leading-[1.1] text-white transition-colors duration-500 group-hover:text-saffron-200">
                         {cruise.title}
                       </h3>
                       <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/70">
@@ -213,7 +213,7 @@ export function HomePage() {
                     <div className="relative pt-10">
                       <Link
                         href="/booking"
-                        className="inline-flex h-12 items-center gap-3 rounded-full bg-white/10 px-6 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl border border-white/20 transition-all duration-500 hover:bg-cyan-400 hover:text-stone-900 hover:border-transparent hover:shadow-[0_8px_20px_rgba(34,211,238,0.3)]"
+                        className="inline-flex h-12 items-center gap-3 rounded-full bg-white/10 px-6 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl border border-white/20 transition-all duration-500 hover:bg-saffron-400 hover:text-stone-900 hover:border-transparent hover:shadow-[0_8px_20px_rgba(244,184,96,0.3)]"
                       >
                         Reserve
                         <ArrowRight size={16} strokeWidth={2} />
@@ -242,7 +242,7 @@ export function HomePage() {
               className="mx-auto mb-16 flex max-w-[540px] flex-col items-center justify-center"
             >
               <div className="flex justify-center">
-                <div className="rounded-lg border border-border bg-white/70 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-cyan-600 shadow-sm">
+                <div className="rounded-lg border border-border bg-white/70 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-saffron-600 shadow-sm">
                   Guest Journal
                 </div>
               </div>
@@ -266,14 +266,14 @@ export function HomePage() {
           <div className="absolute right-10 top-10 hidden h-40 w-40 rotate-12 rounded-[3rem] bg-lotus/8 md:block" />
           <Reveal className="luxury-shell grid gap-10 rounded-[2.6rem] bg-white p-8 shadow-[0_30px_90px_rgba(69,45,28,0.12)] sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-600">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-saffron-600">
                 Ready when you are
               </p>
               <h2 className="mt-5 max-w-3xl font-display text-6xl font-medium leading-[0.94] text-river">
                 Reserve a river moment without the clutter.
               </h2>
             </div>
-            <Button asChild className="h-14 px-8 bg-cyan-400 hover:bg-cyan-300 text-stone-950 border-none shadow-[0_8px_24px_rgba(34,211,238,0.3)]">
+            <Button asChild className="h-14 px-8 bg-saffron-400 hover:bg-saffron-300 text-stone-950 border-none shadow-[0_8px_24px_rgba(244,184,96,0.3)]">
               <Link href="/booking">
                 Start booking
                 <CalendarCheck strokeWidth={1.45} />
