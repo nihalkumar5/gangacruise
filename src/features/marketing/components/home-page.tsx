@@ -179,10 +179,11 @@ export function HomePage() {
                 <article className="group relative flex min-h-[30rem] flex-col overflow-hidden rounded-[2.5rem] bg-stone-900 shadow-2xl transition-all duration-700 hover:-translate-y-2">
                   {/* Background Image with Overlay */}
                   <div className="absolute inset-0">
-                    <img
+                    <Image
                       src={cruise.image}
                       alt={cruise.title}
-                      className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                      fill
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent opacity-80" />
                   </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -92,22 +93,25 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         `,
       }}
     >
-      <img
-        src={testimonial.imgSrc}
-        alt={testimonial.by}
-        className={cn(
-          "mb-8 h-14 w-12 object-cover object-top transition-all duration-700",
-          isCenter ? "grayscale-0" : "grayscale opacity-90"
-        )}
-        style={{
-          boxShadow: isCenter ? "6px 6px 0px rgba(255,255,255,0.08)" : "6px 6px 0px rgba(0,0,0,0.04)"
-        }}
-      />
+      <div className={cn(
+        "relative mb-8 h-14 w-12 transition-all duration-700 overflow-hidden rounded-lg",
+        isCenter ? "grayscale-0" : "grayscale opacity-90"
+      )}>
+        <Image
+          src={testimonial.imgSrc}
+          alt={testimonial.by}
+          fill
+          className="object-cover object-top"
+          style={{
+            boxShadow: isCenter ? "6px 6px 0px rgba(255,255,255,0.08)" : "6px 6px 0px rgba(0,0,0,0.04)"
+          }}
+        />
+      </div>
       <h3 className={cn(
         "text-xl sm:text-2xl font-medium leading-[1.4] tracking-tight",
         isCenter ? "text-white" : "text-stone-800"
       )}>
-        "{testimonial.testimonial}"
+        &quot;{testimonial.testimonial}&quot;
       </h3>
       <p className={cn(
         "absolute bottom-12 left-12 right-12 mt-6 text-[0.68rem] font-bold uppercase tracking-[0.22em]",

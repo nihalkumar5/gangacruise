@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 import { Heart, Menu, X, ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
@@ -186,13 +187,15 @@ export function LuxuryNav() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="absolute inset-0 z-0 pointer-events-none"
               >
-                <img 
+                <Image 
                   src={hoveredEvent 
-                    ? eventOptions.find(e => e.label === hoveredEvent)?.image 
+                    ? eventOptions.find(e => e.label === hoveredEvent)?.image || ""
                     : "https://images.unsplash.com/photo-1598977123418-4545539d4e4b?auto=format&fit=crop&w=1920&q=80"
                   }
-                  alt=""
-                  className="h-full w-full object-cover"
+                  alt={hoveredEvent || "Private Events Background"}
+                  fill
+                  className="object-cover"
+                  priority={!!hoveredEvent}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-transparent" />
               </motion.div>
