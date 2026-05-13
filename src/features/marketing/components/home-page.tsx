@@ -177,7 +177,7 @@ export function HomePage() {
           <div className="luxury-shell mt-14 grid gap-8 lg:grid-cols-3">
             {cruises.map((cruise, index) => (
               <Reveal key={cruise.title} delay={index * 0.1}>
-                <article className="group relative flex min-h-[30rem] flex-col overflow-hidden rounded-[2.5rem] bg-stone-900 shadow-2xl transition-all duration-700 hover:-translate-y-2">
+                <article className="group relative flex min-h-[30rem] flex-col overflow-hidden rounded-[2.5rem] bg-stone-900 shadow-2xl transition-all duration-700 hover:-translate-y-2 isolate" style={{ transform: 'translateZ(0)' }}>
                   {/* Background Image with Overlay */}
                   <div className="absolute inset-0">
                     <Image
