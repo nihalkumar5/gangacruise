@@ -201,29 +201,32 @@ export function LuxuryNav() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Header */}
-            <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-8 sm:pb-12">
-              <div>
+            {/* Header Content on Left */}
+            <div className="relative z-10 flex flex-1 flex-col lg:flex-row lg:items-center">
+              <div className="flex flex-col justify-center lg:w-[45%] lg:pr-12">
                 <p className="text-[0.6rem] font-bold uppercase tracking-[0.4em] text-cyan-400">Exquisite Gatherings</p>
-                <h2 className="mt-2 font-display text-4xl font-medium text-white sm:text-6xl lg:text-7xl">Private Events</h2>
+                <h2 className="mt-4 font-display text-5xl font-medium text-white sm:text-7xl lg:text-9xl">Private<br />Events</h2>
+                <p className="mt-8 max-w-md text-lg leading-relaxed text-white/50 italic lg:text-xl">
+                  Curated hosting experiences on the sacred river. From intimate ceremonies to grand celebrations, find your perfect moment.
+                </p>
+                <div className="mt-12 hidden lg:block">
+                  <button 
+                    onClick={() => setEventsOpen(false)}
+                    className="group flex items-center gap-4 text-sm font-bold uppercase tracking-[0.3em] text-white/40 transition-colors hover:text-white"
+                  >
+                    <X size={20} className="transition-transform group-hover:rotate-90" />
+                    Close Menu
+                  </button>
+                </div>
               </div>
-              <button 
-                onClick={() => setEventsOpen(false)}
-                className="grid size-12 place-items-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-500 hover:bg-white/20 hover:scale-110 active:scale-95 sm:size-16"
-              >
-                <X size={28} strokeWidth={1.2} className="sm:hidden" />
-                <X size={32} strokeWidth={1.2} className="hidden sm:block" />
-              </button>
-            </div>
 
-            {/* Event Grid */}
-            <div className="relative z-10 mt-8 grid flex-1 overflow-hidden lg:mt-16 lg:grid-cols-2">
-              <div className="flex flex-col justify-start gap-1 overflow-y-auto pr-4 custom-scrollbar sm:gap-2">
+              {/* Event List on Right */}
+              <div className="mt-12 flex h-full flex-1 flex-col justify-start gap-1 overflow-y-auto pr-4 custom-scrollbar lg:mt-0 lg:pl-12 lg:border-l lg:border-white/10">
                 <div className="py-10 sm:py-0">
                   {eventOptions.map((event, idx) => (
                     <motion.div
                       key={event.label}
-                      initial={{ opacity: 0, x: -30 }}
+                      initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.1 + idx * 0.05 }}
                     >
@@ -232,59 +235,30 @@ export function LuxuryNav() {
                         onClick={() => setEventsOpen(false)}
                         onMouseEnter={() => setHoveredEvent(event.label)}
                         onMouseLeave={() => setHoveredEvent(null)}
-                        className="group flex items-center gap-4 py-2 transition-all duration-500 sm:gap-6 sm:py-3"
+                        className="group flex items-center gap-4 py-4 transition-all duration-500 sm:gap-6"
                       >
                         <span className="text-[0.65rem] font-mono text-white/40 group-hover:text-cyan-400 sm:text-xs">0{idx + 1}</span>
-                        <span className="font-display text-3xl font-medium text-white/70 transition-all duration-500 group-hover:text-white group-hover:translate-x-4 sm:text-5xl lg:text-6xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
-                          {event.label}
-                        </span>
-                        <ArrowRight className="h-5 w-5 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-6 text-cyan-400 sm:h-6 sm:w-6" />
+                        <div className="flex flex-col">
+                          <span className="font-display text-4xl font-medium text-white/70 transition-all duration-500 group-hover:text-white group-hover:translate-x-6 sm:text-6xl lg:text-7xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+                            {event.label}
+                          </span>
+                          <span className="mt-2 max-w-sm text-sm font-medium text-white/40 transition-all duration-500 group-hover:text-white/60 group-hover:translate-x-6">
+                            {event.description}
+                          </span>
+                        </div>
+                        <ArrowRight className="h-6 w-6 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-10 text-cyan-400 sm:h-8 sm:w-8" />
                       </Link>
                     </motion.div>
                   ))}
                 </div>
               </div>
-
-              {/* Description Panel (Desktop only) */}
-              <div className="hidden flex-col justify-center pb-12 lg:flex">
-                <AnimatePresence mode="wait">
-                  {hoveredEvent ? (
-                    <motion.div
-                      key={hoveredEvent}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      className="max-w-md"
-                    >
-                      <div className="mb-6 overflow-hidden rounded-2xl border border-white/20 shadow-2xl">
-                        <div className="relative aspect-[16/10] w-full">
-                          <Image 
-                            src={eventOptions.find(e => e.label === hoveredEvent)?.image || ""}
-                            alt={hoveredEvent}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      </div>
-                      <p className="text-2xl font-medium leading-relaxed text-white drop-shadow-sm">
-                        {eventOptions.find(e => e.label === hoveredEvent)?.description}
-                      </p>
-                      <div className="mt-8 h-px w-20 bg-cyan-400" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="default"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="max-w-md"
-                    >
-                      <p className="text-2xl font-medium leading-relaxed text-white/40 italic">
-                        Select an event type to explore our curated hosting experiences on the river.
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+              
+              <button 
+                onClick={() => setEventsOpen(false)}
+                className="absolute right-0 top-0 grid size-12 place-items-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-500 hover:bg-white/20 hover:scale-110 active:scale-95 sm:size-16 lg:hidden"
+              >
+                <X size={28} strokeWidth={1.2} />
+              </button>
             </div>
 
             {/* Footer */}
