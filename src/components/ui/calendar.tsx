@@ -53,8 +53,8 @@ function Calendar({
           "border border-cyan-300/35 bg-cyan-300/10 text-cyan-100 shadow-[0_0_0_1px_rgba(103,232,249,0.08)_inset]",
         selected:
           "bg-gradient-to-br from-cyan-200 via-cyan-300 to-sky-300 !text-slate-950 shadow-[0_12px_30px_-14px_rgba(103,232,249,0.95)] hover:from-cyan-200 hover:via-cyan-300 hover:to-sky-300 hover:!text-slate-950 focus:from-cyan-200 focus:via-cyan-300 focus:to-sky-300 focus:!text-slate-950",
-        outside: "text-white/18 opacity-100 pointer-events-none",
-        disabled: "text-white/38 opacity-100 pointer-events-none",
+        outside: "text-white/10 opacity-60 pointer-events-none",
+        disabled: "text-white/15 opacity-50 pointer-events-none",
         hidden: "invisible",
         ...classNames,
       }}
