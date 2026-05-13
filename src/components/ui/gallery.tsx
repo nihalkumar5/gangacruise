@@ -25,7 +25,7 @@ const photos: PhotoItem[] = [
   {
     id: 1,
     order: 0,
-    x: "-320px",
+    x: "-420px",
     y: "18px",
     zIndex: 50,
     direction: "left",
@@ -35,7 +35,7 @@ const photos: PhotoItem[] = [
   {
     id: 2,
     order: 1,
-    x: "-160px",
+    x: "-210px",
     y: "34px",
     zIndex: 40,
     direction: "left",
@@ -55,7 +55,7 @@ const photos: PhotoItem[] = [
   {
     id: 4,
     order: 3,
-    x: "160px",
+    x: "210px",
     y: "24px",
     zIndex: 20,
     direction: "right",
@@ -65,7 +65,7 @@ const photos: PhotoItem[] = [
   {
     id: 5,
     order: 4,
-    x: "320px",
+    x: "420px",
     y: "44px",
     zIndex: 10,
     direction: "left",
@@ -131,7 +131,7 @@ export function PhotoGallery({ animationDelay = 0.5 }: { animationDelay?: number
 
   return (
     <div className="relative">
-      <div className="absolute inset-x-0 top-[190px] -z-10 hidden h-[320px] bg-[linear-gradient(to_right,rgba(87,83,78,.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(87,83,78,.5)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] md:block" />
+      <div className="absolute inset-x-0 top-[220px] -z-10 hidden h-[400px] bg-[linear-gradient(to_right,rgba(87,83,78,.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(87,83,78,.5)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] md:block" />
 
       <p className="my-2 text-center text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-cyan-600/80">
         A Journey Through Visual Stories
@@ -144,7 +144,7 @@ export function PhotoGallery({ animationDelay = 0.5 }: { animationDelay?: number
         details guests remember long after the cruise ends.
       </p>
 
-      <div className="relative mb-8 mt-12 flex h-[260px] w-full items-start justify-center overflow-hidden sm:h-[300px] lg:h-[350px]">
+      <div className="relative mb-12 mt-16 flex h-[320px] w-full items-start justify-center overflow-hidden sm:h-[400px] lg:h-[480px]">
         <motion.div
           className="relative mx-auto flex w-full max-w-7xl justify-center"
           initial={{ opacity: 0 }}
@@ -157,7 +157,7 @@ export function PhotoGallery({ animationDelay = 0.5 }: { animationDelay?: number
             initial="hidden"
             animate={isLoaded ? "visible" : "hidden"}
           >
-            <div className="relative h-[220px] w-[220px] origin-top scale-[0.42] sm:scale-[0.62] lg:scale-100">
+            <div className="relative h-[280px] w-[280px] origin-top scale-[0.52] sm:scale-[0.72] lg:scale-100">
               {[...photos].reverse().map((photo) => (
                 <motion.div
                   key={photo.id}
@@ -171,8 +171,8 @@ export function PhotoGallery({ animationDelay = 0.5 }: { animationDelay?: number
                   }}
                 >
                   <Photo
-                    width={220}
-                    height={220}
+                    width={280}
+                    height={280}
                     src={photo.src}
                     alt={photo.alt}
                     direction={photo.direction}
@@ -238,15 +238,16 @@ export function Photo({
     <motion.div
       drag
       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-      whileTap={{ scale: 1.16, zIndex: 9999 }}
+      whileTap={{ scale: 1.25, zIndex: 10000 }}
       whileHover={{
-        scale: 1.08,
-        rotateZ: 2 * (direction === "left" ? -1 : 1),
-        zIndex: 9999,
+        scale: 1.2,
+        rotateZ: 4 * (direction === "left" ? -1 : 1),
+        zIndex: 10000,
+        transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
       }}
       whileDrag={{
-        scale: 1.08,
-        zIndex: 9999,
+        scale: 1.2,
+        zIndex: 10000,
       }}
       initial={{ rotate: 0 }}
       animate={{ rotate: rotation }}
@@ -270,16 +271,17 @@ export function Photo({
       draggable={false}
       tabIndex={0}
     >
-      <div className="relative h-full w-full overflow-hidden rounded-[2rem] shadow-[0_18px_60px_rgba(39,34,31,0.18)]">
+      <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] shadow-[0_24px_80px_rgba(39,34,31,0.22)] border border-white/20">
         <Image
-          className="rounded-[2rem] object-cover"
+          className="rounded-[2.5rem] object-cover transition-transform duration-700 group-hover:scale-110"
           fill
           src={src}
           alt={alt}
-          sizes="220px"
+          sizes="280px"
           draggable={false}
           {...props}
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       </div>
     </motion.div>
   )
