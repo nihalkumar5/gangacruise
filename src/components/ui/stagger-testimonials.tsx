@@ -76,7 +76,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       onClick={() => handleMove(position)}
       className={cn(
         "absolute left-1/2 top-1/2 cursor-pointer border p-10 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]",
-        "hover:z-[100] hover:scale-[1.18] hover:shadow-[0_60px_120px_-20px_rgba(0,0,0,0.4)]",
         isCenter 
           ? "z-20 bg-[#1c1917] text-white border-white/10 shadow-[0_45px_100px_-20px_rgba(0,0,0,0.6)] opacity-100" 
           : "z-10 bg-white text-stone-900 border-stone-200 shadow-[0_15px_45px_-10px_rgba(0,0,0,0.12)] scale-90 opacity-95"
