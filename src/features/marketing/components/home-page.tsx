@@ -73,7 +73,7 @@ const cruises = [
     title: "Evening Aarti Reserve",
     meta: "17:45 / 110 min",
     copy: "A composed premium deck view of ceremony, lamps, sound, and reflection.",
-    image: "https://images.unsplash.com/photo-1598977123418-4545539d4e4b?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1627522460108-215683bdc9f6?auto=format&fit=crop&q=80&w=800",
   },
   {
     title: "Private Celebration",
@@ -183,6 +183,7 @@ export function HomePage() {
                       src={cruise.image}
                       alt={cruise.title}
                       fill
+                      priority={index < 3}
                       className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent opacity-80" />
