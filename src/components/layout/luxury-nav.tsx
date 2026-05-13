@@ -25,7 +25,7 @@ const eventOptions = [
   },
   { 
     label: "Birthday Party", 
-    image: "https://images.unsplash.com/photo-1464347601390-2ff68d8f5f9a?auto=format&fit=crop&w=800&q=80",
+    image: "/images/events/birthday-party.png",
     description: "Celebrate milestones with cinematic sunset views."
   },
   { 
@@ -126,7 +126,7 @@ export function LuxuryNav() {
             {navItems.map((item) => (
               item.label === "Private Events" ? (
                 <button
-                  key={item.href}
+                  key={item.label}
                   onClick={() => setEventsOpen(true)}
                   className={cn(
                     "flex items-center gap-1.5 rounded-full px-5 py-2 font-semibold uppercase tracking-[0.18em] text-white transition-all duration-500 hover:bg-white/10",
@@ -247,7 +247,7 @@ export function LuxuryNav() {
                       transition={{ delay: 0.1 + idx * 0.05 }}
                     >
                       <Link
-                        href={`/group-booking?type=${event.label.toLowerCase().replace(/ /g, "-")}`}
+                        href={`/events/${event.label.toLowerCase().replace(/ /g, "-")}`}
                         onClick={() => setEventsOpen(false)}
                         onMouseEnter={() => setHoveredEvent(event.label)}
                         onMouseLeave={() => setHoveredEvent(null)}
@@ -327,7 +327,7 @@ export function LuxuryNav() {
                       {eventOptions.map((subItem) => (
                         <Link
                           key={subItem.label}
-                          href={`/group-booking?type=${subItem.label.toLowerCase().replace(/ /g, "-")}`}
+                          href={`/events/${subItem.label.toLowerCase().replace(/ /g, "-")}`}
                           onClick={() => setOpen(false)}
                           className="text-sm font-semibold uppercase tracking-[0.2em] text-white/60 hover:text-white"
                         >
