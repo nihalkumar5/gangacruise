@@ -16,8 +16,7 @@ import { Reveal } from "@/components/luxury/reveal"
 import { SiteFooter } from "@/components/shared/site-footer"
 import { Button } from "@/components/ui/button"
 import { PhotoGallery } from "@/components/ui/gallery"
-import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1"
-
+import { StaggerTestimonials } from "@/components/ui/stagger-testimonials"
 import { CinematicHero } from "./cinematic-hero"
 
 type ValueCard = {
@@ -68,88 +67,21 @@ const cruises = [
     title: "Dawn on the Ghats",
     meta: "05:15 / 90 min",
     copy: "A blue-hour passage with tea, soft commentary, and temple silhouettes.",
+    image: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "Evening Aarti Reserve",
     meta: "17:45 / 110 min",
     copy: "A composed premium deck view of ceremony, lamps, sound, and reflection.",
+    image: "https://images.unsplash.com/photo-1598977123418-4545539d4e4b?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "Private Celebration",
     meta: "By request / 2-3 hrs",
     copy: "A tailored river evening for families, founders, and wedding guests.",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
   },
 ]
-
-const testimonials = [
-  {
-    text: "The cruise felt perfectly timed around the light. Boarding was calm, the seats were ready, and the team made the whole morning feel effortless.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80",
-    name: "Aarav Mehta",
-    role: "Dawn cruise guest",
-  },
-  {
-    text: "We booked for visiting family and everything was handled with a rare amount of grace. The river view during aarti was unforgettable.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80",
-    name: "Mira Kapoor",
-    role: "Evening aarti guest",
-  },
-  {
-    text: "The private deck had exactly the right mood for our celebration. Quiet service, clear communication, and no crowding.",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&q=80",
-    name: "Naina Shah",
-    role: "Private charter host",
-  },
-  {
-    text: "Seat selection and checkout were simple, but the experience still felt premium from the first message to boarding.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&q=80",
-    name: "Kabir Sethi",
-    role: "Weekend guest",
-  },
-  {
-    text: "Our guide knew when to speak and when to let the river do the work. That restraint made the whole trip feel special.",
-    image:
-      "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=160&q=80",
-    name: "Leela Rao",
-    role: "Story cruise guest",
-  },
-  {
-    text: "The team coordinated our group without making it feel managed. Everyone simply arrived, settled in, and enjoyed the evening.",
-    image:
-      "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?auto=format&fit=crop&w=160&q=80",
-    name: "Rohan Bansal",
-    role: "Group booking lead",
-  },
-  {
-    text: "The ticket and reminders made planning easy. On the boat, the details were polished without becoming formal.",
-    image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=160&q=80",
-    name: "Anika Sen",
-    role: "Sunrise guest",
-  },
-  {
-    text: "I wanted something peaceful for my parents, and this was exactly that. Slow, beautiful, and very thoughtfully hosted.",
-    image:
-      "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=160&q=80",
-    name: "Dev Malhotra",
-    role: "Family host",
-  },
-  {
-    text: "The boat never felt rushed. From tea to the final return, every touchpoint had a sense of care.",
-    image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=160&q=80",
-    name: "Sara Thomas",
-    role: "Private evening guest",
-  },
-]
-
-const firstColumn = testimonials.slice(0, 3)
-const secondColumn = testimonials.slice(3, 6)
-const thirdColumn = testimonials.slice(6, 9)
 
 export function HomePage() {
   return (
@@ -161,7 +93,7 @@ export function HomePage() {
         <section className="bg-white py-20 sm:py-28">
           <div className="luxury-shell grid gap-14 lg:grid-cols-[0.85fr_1fr_1fr_1fr] lg:items-start">
             <Reveal>
-              <p className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-blue-600">
+              <p className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-cyan-600">
                 What we serve
               </p>
               <h2 className="mt-6 max-w-sm font-sans text-4xl font-bold uppercase leading-tight tracking-tight text-stone-900 sm:text-5xl">
@@ -204,7 +136,7 @@ export function HomePage() {
                         />
                       </motion.div>
                     </div>
-                    <h3 className="text-2xl font-bold tracking-tight text-stone-900 transition-colors duration-500 group-hover:text-blue-600">
+                    <h3 className="text-2xl font-bold tracking-tight text-stone-900 transition-colors duration-500 group-hover:text-cyan-600">
                       {value.label}
                     </h3>
                     <p className="mt-4 max-w-[220px] text-sm font-medium leading-relaxed text-stone-500/80">
@@ -213,7 +145,7 @@ export function HomePage() {
                     <motion.div
                       initial={{ width: 0 }}
                       whileHover={{ width: 40 }}
-                      className="mt-6 h-1 rounded-full bg-blue-600/20 transition-all duration-500"
+                      className="mt-6 h-1 rounded-full bg-cyan-600/20 transition-all duration-500"
                     />
                   </motion.article>
                 </Reveal>
@@ -225,7 +157,7 @@ export function HomePage() {
         <section id="cruises" className="bg-[#fbf8f4] py-24 sm:py-32">
           <div className="luxury-shell grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
             <Reveal>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-lotus">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-600">
                 Curated departures
               </p>
               <h2 className="mt-6 max-w-2xl font-display text-6xl font-medium leading-[0.94] text-river sm:text-7xl">
@@ -241,29 +173,50 @@ export function HomePage() {
             </Reveal>
           </div>
 
-          <div className="luxury-shell mt-14 grid gap-5 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
+          <div className="luxury-shell mt-14 grid gap-8 lg:grid-cols-3">
             {cruises.map((cruise, index) => (
-              <Reveal key={cruise.title} delay={index * 0.08}>
-                <article className="group flex min-h-[23rem] flex-col justify-between rounded-[2.2rem] bg-white p-7 shadow-[0_28px_70px_rgba(69,45,28,0.1)] transition duration-700 hover:-translate-y-1 sm:p-9">
-                  <div>
-                    <div className="mb-8 flex items-center justify-between text-sm font-semibold uppercase tracking-[0.18em] text-lotus/80">
-                      <span>{cruise.meta}</span>
-                      <Ship strokeWidth={1.45} />
-                    </div>
-                    <h3 className="font-display text-5xl font-medium leading-none text-river">
-                      {cruise.title}
-                    </h3>
-                    <p className="mt-6 max-w-md text-base leading-8 text-river/60">
-                      {cruise.copy}
-                    </p>
+              <Reveal key={cruise.title} delay={index * 0.1}>
+                <article className="group relative flex min-h-[30rem] flex-col overflow-hidden rounded-[2.5rem] bg-stone-900 shadow-2xl transition-all duration-700 hover:-translate-y-2">
+                  {/* Background Image with Overlay */}
+                  <div className="absolute inset-0">
+                    <img
+                      src={cruise.image}
+                      alt={cruise.title}
+                      className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent opacity-80" />
                   </div>
-                  <Link
-                    href="/booking"
-                    className="mt-10 inline-flex items-center gap-3 text-sm font-bold text-lotus"
-                  >
-                    Reserve this cruise
-                    <ArrowRight strokeWidth={1.45} />
-                  </Link>
+
+                  {/* Glass Content Card */}
+                  <div className="relative flex flex-1 flex-col justify-between p-8 sm:p-10">
+                    <div className="relative">
+                      <div className="mb-6 flex items-center justify-between">
+                        <span className="rounded-full bg-white/10 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/90 backdrop-blur-md border border-white/10">
+                          {cruise.meta}
+                        </span>
+                        <div className="rounded-full bg-white/10 p-2 text-white backdrop-blur-md border border-white/10">
+                          <Ship size={18} strokeWidth={1.5} />
+                        </div>
+                      </div>
+                      
+                      <h3 className="font-display text-4xl font-medium leading-[1.1] text-white transition-colors duration-500 group-hover:text-cyan-200">
+                        {cruise.title}
+                      </h3>
+                      <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/70">
+                        {cruise.copy}
+                      </p>
+                    </div>
+
+                    <div className="relative pt-10">
+                      <Link
+                        href="/booking"
+                        className="inline-flex h-12 items-center gap-3 rounded-full bg-white/10 px-6 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl border border-white/20 transition-all duration-500 hover:bg-cyan-400 hover:text-stone-900 hover:border-transparent hover:shadow-[0_8px_20px_rgba(34,211,238,0.3)]"
+                      >
+                        Reserve
+                        <ArrowRight size={16} strokeWidth={2} />
+                      </Link>
+                    </div>
+                  </div>
                 </article>
               </Reveal>
             ))}
@@ -276,42 +229,32 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-background py-24 sm:py-32">
+        <section className="relative overflow-hidden bg-background py-16 sm:py-24">
           <div className="luxury-shell relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="mx-auto flex max-w-[540px] flex-col items-center justify-center"
+              className="mx-auto mb-16 flex max-w-[540px] flex-col items-center justify-center"
             >
               <div className="flex justify-center">
-                <div className="rounded-lg border border-border bg-white/70 px-4 py-1 text-sm font-semibold text-lotus shadow-sm">
-                  Testimonials
+                <div className="rounded-lg border border-border bg-white/70 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-cyan-600 shadow-sm">
+                  Guest Journal
                 </div>
               </div>
 
-              <h2 className="mt-5 text-center font-display text-5xl font-medium leading-[0.95] text-river sm:text-6xl">
+              <h2 className="mt-6 text-center font-display text-5xl font-medium leading-[0.95] text-river sm:text-7xl">
                 What our guests say
               </h2>
-              <p className="mt-5 text-center text-base leading-8 text-river/65">
+              <p className="mt-6 text-center text-lg leading-8 text-river/60">
                 Real notes from hosted departures, private decks, family gatherings, and
                 quiet morning passages.
               </p>
             </motion.div>
 
-            <div className="mt-10 flex max-h-[740px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
-              <TestimonialsColumn testimonials={firstColumn} duration={15} />
-              <TestimonialsColumn
-                testimonials={secondColumn}
-                className="hidden md:block"
-                duration={19}
-              />
-              <TestimonialsColumn
-                testimonials={thirdColumn}
-                className="hidden lg:block"
-                duration={17}
-              />
+            <div className="relative mt-0">
+              <StaggerTestimonials />
             </div>
           </div>
         </section>
@@ -320,14 +263,14 @@ export function HomePage() {
           <div className="absolute right-10 top-10 hidden h-40 w-40 rotate-12 rounded-[3rem] bg-lotus/8 md:block" />
           <Reveal className="luxury-shell grid gap-10 rounded-[2.6rem] bg-white p-8 shadow-[0_30px_90px_rgba(69,45,28,0.12)] sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-lotus">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyan-600">
                 Ready when you are
               </p>
               <h2 className="mt-5 max-w-3xl font-display text-6xl font-medium leading-[0.94] text-river">
                 Reserve a river moment without the clutter.
               </h2>
             </div>
-            <Button asChild className="h-14 px-8">
+            <Button asChild className="h-14 px-8 bg-cyan-400 hover:bg-cyan-300 text-stone-950 border-none shadow-[0_8px_24px_rgba(34,211,238,0.3)]">
               <Link href="/booking">
                 Start booking
                 <CalendarCheck strokeWidth={1.45} />

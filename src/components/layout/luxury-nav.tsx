@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { AnimatePresence, motion } from "framer-motion"
-import { Heart, Menu, X } from "lucide-react"
+import { Heart, Menu, X, ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { cn } from "@/lib/utils"
@@ -16,9 +16,44 @@ const navItems = [
   { label: "Account", href: "/account" },
 ]
 
+const eventOptions = [
+  { 
+    label: "Wedding", 
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
+    description: "Ceremonies on the sacred river with tailored hospitality."
+  },
+  { 
+    label: "Birthday Party", 
+    image: "https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=800&q=80",
+    description: "Celebrate milestones with cinematic sunset views."
+  },
+  { 
+    label: "Ring Ceremony", 
+    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
+    description: "Exquisite decks for intimate family gatherings."
+  },
+  { 
+    label: "Anniversary", 
+    image: "https://images.unsplash.com/photo-1522673607200-164883efbfc1?auto=format&fit=crop&w=800&q=80",
+    description: "Rediscover love amidst the timeless flow of Ganga."
+  },
+  { 
+    label: "Satsang/Katha", 
+    image: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=800&q=80",
+    description: "Spiritual gatherings in a serene, private environment."
+  },
+  { 
+    label: "Business Meeting", 
+    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80",
+    description: "Composed executive settings for founders and partners."
+  }
+]
+
 export function LuxuryNav() {
   const [open, setOpen] = useState(false)
+  const [eventsOpen, setEventsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [hoveredEvent, setHoveredEvent] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +62,17 @@ export function LuxuryNav() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (eventsOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [eventsOpen])
 
   return (
     <>
@@ -63,43 +109,17 @@ export function LuxuryNav() {
           <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               item.label === "Private Events" ? (
-                <div key={item.href} className="group relative">
-                  <button
-                    className={cn(
-                      "flex items-center gap-1.5 rounded-full px-5 py-2 font-semibold uppercase tracking-[0.18em] text-white transition-all duration-500 hover:bg-white/10",
-                      scrolled ? "text-[0.68rem]" : "text-[0.72rem]"
-                    )}
-                  >
-                    {item.label}
-                    <motion.span
-                      animate={{ rotate: 0 }}
-                      className="inline-block border-x-4 border-t-4 border-x-transparent border-t-white/60"
-                    />
-                  </button>
-                  
-                  {/* Dropdown Menu */}
-                  <div className="invisible absolute left-1/2 top-full min-w-[240px] -translate-x-1/2 pt-4 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
-                    <div className="overflow-hidden rounded-2xl border border-white/10 bg-stone-900/90 p-2 shadow-2xl backdrop-blur-2xl">
-                      {[
-                        "Wedding",
-                        "Birthday Party",
-                        "Ring Ceremony",
-                        "Anniversary Celebration",
-                        "Satsang/Katha",
-                        "Business Meeting / Seminar",
-                        "Other events"
-                      ].map((option) => (
-                        <Link
-                          key={option}
-                          href={`/group-booking?type=${option.toLowerCase().replace(/ /g, "-")}`}
-                          className="block rounded-xl px-4 py-3 text-[0.65rem] font-bold uppercase tracking-widest text-white/70 transition-colors hover:bg-white/10 hover:text-white"
-                        >
-                          {option}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <button
+                  key={item.href}
+                  onClick={() => setEventsOpen(true)}
+                  className={cn(
+                    "flex items-center gap-1.5 rounded-full px-5 py-2 font-semibold uppercase tracking-[0.18em] text-white transition-all duration-500 hover:bg-white/10",
+                    scrolled ? "text-[0.68rem]" : "text-[0.72rem]"
+                  )}
+                >
+                  {item.label}
+                  <span className="inline-block border-x-[3px] border-t-[4px] border-x-transparent border-t-white/60" />
+                </button>
               ) : (
                 <Link
                   key={item.href}
@@ -146,6 +166,131 @@ export function LuxuryNav() {
         </nav>
       </motion.header>
 
+      {/* Full-Screen Events Mega Menu */}
+      <AnimatePresence>
+        {eventsOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 z-[100] flex flex-col bg-stone-950 px-8 py-24 md:px-20"
+          >
+            {/* Background Image Effect */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={hoveredEvent || "default"}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 0.4, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="absolute inset-0 z-0 pointer-events-none"
+              >
+                <img 
+                  src={hoveredEvent 
+                    ? eventOptions.find(e => e.label === hoveredEvent)?.image 
+                    : "https://images.unsplash.com/photo-1598977123418-4545539d4e4b?auto=format&fit=crop&w=1920&q=80"
+                  }
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-transparent" />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Header */}
+            <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-10">
+              <div>
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.4em] text-cyan-400">Exquisite Gatherings</p>
+                <h2 className="mt-4 font-display text-5xl font-medium text-white sm:text-7xl">Private Events</h2>
+              </div>
+              <button 
+                onClick={() => setEventsOpen(false)}
+                className="grid size-16 place-items-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-500 hover:bg-white/20 hover:scale-110 active:scale-95"
+              >
+                <X size={32} strokeWidth={1.2} />
+              </button>
+            </div>
+
+            {/* Event Grid */}
+            <div className="relative z-10 mt-16 grid flex-1 gap-x-12 gap-y-8 lg:grid-cols-2">
+              <div className="flex flex-col gap-2">
+                {eventOptions.map((event, idx) => (
+                  <motion.div
+                    key={event.label}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + idx * 0.05 }}
+                  >
+                    <Link
+                      href={`/group-booking?type=${event.label.toLowerCase().replace(/ /g, "-")}`}
+                      onClick={() => setEventsOpen(false)}
+                      onMouseEnter={() => setHoveredEvent(event.label)}
+                      onMouseLeave={() => setHoveredEvent(null)}
+                      className="group flex items-center gap-6 py-3 transition-all duration-500"
+                    >
+                      <span className="text-xs font-mono text-white/30 group-hover:text-cyan-400">0{idx + 1}</span>
+                      <span className="font-display text-4xl font-medium text-white/60 transition-all duration-500 group-hover:text-white group-hover:translate-x-4 sm:text-6xl">
+                        {event.label}
+                      </span>
+                      <ArrowRight className="opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-6 text-cyan-400" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Description Panel (Desktop only) */}
+              <div className="hidden flex-col justify-end pb-12 lg:flex">
+                <AnimatePresence mode="wait">
+                  {hoveredEvent ? (
+                    <motion.div
+                      key={hoveredEvent}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      className="max-w-md"
+                    >
+                      <p className="text-2xl font-medium leading-relaxed text-white/80">
+                        {eventOptions.find(e => e.label === hoveredEvent)?.description}
+                      </p>
+                      <div className="mt-10 h-px w-20 bg-cyan-400" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="default"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="max-w-md"
+                    >
+                      <p className="text-2xl font-medium leading-relaxed text-white/40 italic">
+                        Select an event type to explore our curated hosting experiences on the river.
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="relative z-10 mt-auto flex flex-col gap-10 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex gap-10">
+                <div>
+                  <span className="block text-[0.6rem] font-bold uppercase tracking-widest text-white/40">Inquiries</span>
+                  <p className="mt-1 text-sm font-semibold text-white">+91 98765 43210</p>
+                </div>
+                <div>
+                  <span className="block text-[0.6rem] font-bold uppercase tracking-widest text-white/40">Email</span>
+                  <p className="mt-1 text-sm font-semibold text-white">events@gangacruise.com</p>
+                </div>
+              </div>
+              <Link href="/group-booking" className="inline-flex h-12 items-center gap-3 rounded-full bg-cyan-300 px-8 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-stone-900 transition-all hover:bg-cyan-200">
+                Book Full Deck
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <AnimatePresence>
         {open ? (
           <motion.div
@@ -173,22 +318,14 @@ export function LuxuryNav() {
                   </Link>
                   {item.label === "Private Events" && (
                     <div className="mt-4 flex flex-col gap-3 pl-4 border-l border-white/20">
-                      {[
-                        "Wedding",
-                        "Birthday Party",
-                        "Ring Ceremony",
-                        "Anniversary Celebration",
-                        "Satsang/Katha",
-                        "Business Meeting / Seminar",
-                        "Other events"
-                      ].map((subItem) => (
+                      {eventOptions.map((subItem) => (
                         <Link
-                          key={subItem}
-                          href={`/group-booking?type=${subItem.toLowerCase().replace(/ /g, "-")}`}
+                          key={subItem.label}
+                          href={`/group-booking?type=${subItem.label.toLowerCase().replace(/ /g, "-")}`}
                           onClick={() => setOpen(false)}
                           className="text-sm font-semibold uppercase tracking-[0.2em] text-white/60 hover:text-white"
                         >
-                          {subItem}
+                          {subItem.label}
                         </Link>
                       ))}
                     </div>

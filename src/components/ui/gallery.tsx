@@ -133,11 +133,11 @@ export function PhotoGallery({ animationDelay = 0.5 }: { animationDelay?: number
     <div className="relative">
       <div className="absolute inset-x-0 top-[190px] -z-10 hidden h-[320px] bg-[linear-gradient(to_right,rgba(87,83,78,.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(87,83,78,.5)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] md:block" />
 
-      <p className="my-2 text-center text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-lotus/70">
+      <p className="my-2 text-center text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-cyan-600/80">
         A Journey Through Visual Stories
       </p>
       <h3 className="mx-auto max-w-4xl py-3 text-center font-display text-5xl leading-[0.95] text-river sm:text-6xl lg:text-7xl">
-        Welcome to Our <span className="text-lotus">River Stories</span>
+        Welcome to Our <span className="text-cyan-600">River Stories</span>
       </h3>
       <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-8 text-river/60">
         A collage of hosted mornings, warm light, quiet ceremony, and the kind of
@@ -185,7 +185,7 @@ export function PhotoGallery({ animationDelay = 0.5 }: { animationDelay?: number
       </div>
 
       <div className="flex w-full justify-center">
-        <Button asChild className="h-14 px-8">
+        <Button asChild className="h-14 px-8 bg-cyan-400 hover:bg-cyan-300 text-stone-950 border-none shadow-[0_8px_24px_rgba(34,211,238,0.3)]">
           <Link href="/gallery">View All Stories</Link>
         </Button>
       </div>

@@ -23,7 +23,7 @@ const config: Config = {
           500: "#9d6823",
           700: "#624017",
         },
-        lotus: "#ac2b97",
+        lotus: "#0891b2", // Cyan-600 for consistency with hero
         ember: "#c76236",
         river: "#27221f",
         obsidian: "#faf7f2",

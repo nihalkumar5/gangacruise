@@ -11,6 +11,7 @@ export type Testimonial = {
   image: string
   name: string
   role: string
+  isFeatured?: boolean
 }
 
 export function TestimonialsColumn(props: {
@@ -34,28 +35,44 @@ export function TestimonialsColumn(props: {
       >
         {Array.from({ length: 2 }).map((_, groupIndex) => (
           <React.Fragment key={groupIndex}>
-            {props.testimonials.map(({ text, image, name, role }) => (
+            {props.testimonials.map(({ text, image, name, role, isFeatured }) => (
               <div
                 className={cn(
-                  "w-full max-w-xs rounded-3xl border border-border bg-white/80 p-10 shadow-lg shadow-primary/10",
-                  "backdrop-blur-sm",
+                  "w-full max-w-xs rounded-3xl border p-10 transition-all duration-500",
+                  isFeatured 
+                    ? "bg-cyan-600 text-white border-cyan-500 shadow-xl shadow-cyan-500/20" 
+                    : "bg-white/80 text-foreground border-border shadow-lg shadow-primary/10 backdrop-blur-sm"
                 )}
                 key={`${name}-${groupIndex}`}
               >
-                <div className="text-sm leading-7 text-foreground/80">{text}</div>
-                <div className="mt-5 flex items-center gap-2">
+                <div className={cn(
+                  "text-sm leading-7",
+                  isFeatured ? "text-white/90" : "text-foreground/80"
+                )}>
+                  {text}
+                </div>
+                <div className="mt-5 flex items-center gap-3">
                   <Image
                     width={40}
                     height={40}
                     src={image}
                     alt={name}
-                    className="size-10 rounded-full object-cover"
+                    className={cn(
+                      "size-10 rounded-full object-cover",
+                      isFeatured ? "border-2 border-white/20" : ""
+                    )}
                   />
                   <div className="flex flex-col">
-                    <div className="font-medium leading-5 tracking-tight text-foreground">
+                    <div className={cn(
+                      "font-medium leading-5 tracking-tight",
+                      isFeatured ? "text-white" : "text-foreground"
+                    )}>
                       {name}
                     </div>
-                    <div className="leading-5 tracking-tight text-muted-foreground">
+                    <div className={cn(
+                      "leading-5 tracking-tight text-xs uppercase font-bold",
+                      isFeatured ? "text-white/60" : "text-muted-foreground"
+                    )}>
                       {role}
                     </div>
                   </div>
