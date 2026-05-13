@@ -20,33 +20,48 @@ const navItems = [
 const eventOptions = [
   { 
     label: "Wedding", 
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80",
     description: "Ceremonies on the sacred river with tailored hospitality."
   },
   { 
     label: "Birthday Party", 
-    image: "https://images.unsplash.com/photo-1464347601390-2ff68d8f5f9a?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1464347601390-2ff68d8f5f9a?auto=format&fit=crop&w=800&q=80",
     description: "Celebrate milestones with cinematic sunset views."
   },
   { 
     label: "Ring Ceremony", 
-    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
     description: "Exquisite decks for intimate family gatherings."
   },
   { 
     label: "Anniversary", 
-    image: "https://images.unsplash.com/photo-1522673607200-164883efbfc1?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1522673607200-164883efbfc1?auto=format&fit=crop&w=800&q=80",
     description: "Rediscover love amidst the timeless flow of Ganga."
   },
   { 
     label: "Satsang/Katha", 
-    image: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=800&q=80",
     description: "Spiritual gatherings in a serene, private environment."
   },
   { 
     label: "Business Meeting", 
-    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80",
     description: "Composed executive settings for founders and partners."
+  },
+  { 
+    label: "Pre-Wedding", 
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
+    description: "Cinematic backdrops for your journey towards forever."
+  },
+  { 
+    label: "Corporate Retreat", 
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+    description: "Strategic thinking and team bonding on the water."
+  },
+  { 
+    label: "Spiritual Retreat", 
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+    description: "Mindfulness and yoga sessions amidst the morning mist."
   }
 ]
 
@@ -175,7 +190,7 @@ export function LuxuryNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[100] flex flex-col bg-stone-950 px-8 py-16 md:px-20 lg:py-24"
+            className="fixed inset-0 z-[100] flex flex-col bg-stone-950 px-8 py-12 md:px-20 lg:py-20"
           >
             {/* Background Image Effect */}
             <AnimatePresence mode="wait">
@@ -201,28 +216,29 @@ export function LuxuryNav() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Header Content on Left */}
-            <div className="relative z-10 flex flex-1 flex-col lg:flex-row lg:items-center">
-              <div className="flex flex-col justify-center lg:w-[45%] lg:pr-12">
+            {/* Main Content Grid */}
+            <div className="relative z-10 flex flex-1 flex-col gap-10 overflow-hidden lg:flex-row lg:items-center lg:gap-0">
+              {/* Left Column: Header */}
+              <div className="flex flex-col justify-center lg:w-[40%] lg:pr-12">
                 <p className="text-[0.6rem] font-bold uppercase tracking-[0.4em] text-cyan-400">Exquisite Gatherings</p>
-                <h2 className="mt-4 font-display text-5xl font-medium text-white sm:text-7xl lg:text-9xl">Private<br />Events</h2>
-                <p className="mt-8 max-w-md text-lg leading-relaxed text-white/50 italic lg:text-xl">
-                  Curated hosting experiences on the sacred river. From intimate ceremonies to grand celebrations, find your perfect moment.
+                <h2 className="mt-4 font-display text-5xl font-medium text-white sm:text-7xl lg:text-8xl">Private<br />Events</h2>
+                <p className="mt-6 max-w-sm text-base leading-relaxed text-white/50 italic lg:text-lg">
+                  Curated hosting experiences on the sacred river. From intimate ceremonies to grand celebrations.
                 </p>
-                <div className="mt-12 hidden lg:block">
+                <div className="mt-10 hidden lg:block">
                   <button 
                     onClick={() => setEventsOpen(false)}
-                    className="group flex items-center gap-4 text-sm font-bold uppercase tracking-[0.3em] text-white/40 transition-colors hover:text-white"
+                    className="group flex items-center gap-4 text-[0.65rem] font-bold uppercase tracking-[0.3em] text-white/40 transition-colors hover:text-white"
                   >
-                    <X size={20} className="transition-transform group-hover:rotate-90" />
+                    <X size={18} className="transition-transform group-hover:rotate-90" />
                     Close Menu
                   </button>
                 </div>
               </div>
 
-              {/* Event List on Right */}
-              <div className="mt-12 flex h-full flex-1 flex-col justify-start gap-1 overflow-y-auto pr-4 custom-scrollbar lg:mt-0 lg:pl-12 lg:border-l lg:border-white/10">
-                <div className="py-10 sm:py-0">
+              {/* Right Column: Scrollable Event List */}
+              <div className="flex h-full flex-1 flex-col justify-start overflow-y-auto pr-6 custom-scrollbar lg:pl-16 lg:border-l lg:border-white/10">
+                <div className="py-6 lg:py-10">
                   {eventOptions.map((event, idx) => (
                     <motion.div
                       key={event.label}
@@ -235,18 +251,18 @@ export function LuxuryNav() {
                         onClick={() => setEventsOpen(false)}
                         onMouseEnter={() => setHoveredEvent(event.label)}
                         onMouseLeave={() => setHoveredEvent(null)}
-                        className="group flex items-center gap-4 py-4 transition-all duration-500 sm:gap-6"
+                        className="group flex items-center gap-4 py-4 transition-all duration-500 sm:gap-8 sm:py-5"
                       >
-                        <span className="text-[0.65rem] font-mono text-white/40 group-hover:text-cyan-400 sm:text-xs">0{idx + 1}</span>
+                        <span className="text-[0.6rem] font-mono text-white/40 group-hover:text-cyan-400">0{idx + 1}</span>
                         <div className="flex flex-col">
-                          <span className="font-display text-4xl font-medium text-white/70 transition-all duration-500 group-hover:text-white group-hover:translate-x-6 sm:text-6xl lg:text-7xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+                          <span className="font-display text-3xl font-medium text-white/70 transition-all duration-500 group-hover:text-white group-hover:translate-x-6 sm:text-5xl lg:text-6xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
                             {event.label}
                           </span>
-                          <span className="mt-2 max-w-sm text-sm font-medium text-white/40 transition-all duration-500 group-hover:text-white/60 group-hover:translate-x-6">
+                          <span className="mt-1.5 max-w-sm text-xs font-medium text-white/30 transition-all duration-500 group-hover:text-white/50 group-hover:translate-x-6 sm:text-sm">
                             {event.description}
                           </span>
                         </div>
-                        <ArrowRight className="h-6 w-6 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-10 text-cyan-400 sm:h-8 sm:w-8" />
+                        <ArrowRight className="ml-auto h-5 w-5 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-4 text-cyan-400 sm:h-7 sm:w-7" />
                       </Link>
                     </motion.div>
                   ))}
@@ -265,15 +281,15 @@ export function LuxuryNav() {
             <div className="relative z-10 mt-auto flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between sm:pt-10">
               <div className="flex gap-8 sm:gap-10">
                 <div>
-                  <span className="block text-[0.55rem] font-bold uppercase tracking-widest text-white/50 sm:text-[0.6rem]">Inquiries</span>
-                  <p className="mt-1 text-xs font-semibold text-white sm:text-sm">+91 98765 43210</p>
+                  <span className="block text-[0.5rem] font-bold uppercase tracking-widest text-white/50 sm:text-[0.55rem]">Inquiries</span>
+                  <p className="mt-1 text-[0.65rem] font-semibold text-white sm:text-xs">+91 98765 43210</p>
                 </div>
                 <div>
-                  <span className="block text-[0.55rem] font-bold uppercase tracking-widest text-white/50 sm:text-[0.6rem]">Email</span>
-                  <p className="mt-1 text-xs font-semibold text-white sm:text-sm">events@gangacruise.com</p>
+                  <span className="block text-[0.5rem] font-bold uppercase tracking-widest text-white/50 sm:text-[0.55rem]">Email</span>
+                  <p className="mt-1 text-[0.65rem] font-semibold text-white sm:text-xs">events@gangacruise.com</p>
                 </div>
               </div>
-              <Link href="/group-booking" className="inline-flex h-11 items-center justify-center gap-3 rounded-full bg-cyan-300 px-6 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-stone-900 transition-all hover:bg-cyan-200 sm:h-12 sm:px-8 sm:text-[0.65rem]">
+              <Link href="/group-booking" className="inline-flex h-11 items-center justify-center gap-3 rounded-full bg-cyan-300 px-8 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-stone-900 transition-all hover:bg-cyan-200 sm:h-12 sm:text-[0.65rem]">
                 Book Full Deck
               </Link>
             </div>
